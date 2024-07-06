@@ -12,7 +12,7 @@ const { middlewareGlobal, checkCsrfToken, csrfMiddleware } = require('./src/midd
 
 const app = express();
 
-mongoose.connect(process.env.CONNECTIONSTRING).then(() => app.emit('done')).catch((e) => console.log(e));
+//mongoose.connect(process.env.CONNECTIONSTRING).then(() => app.emit('done')).catch((e) => console.log(e));
 
 //app.use(helmet());
 
@@ -22,7 +22,7 @@ app.use(express.static('./public'));
 
 app.use(session({
   secret: 'r308u3ntounti3n4tou3nuiq3on4bi44$#%',
-  store: Store.create({ mongoUrl: process.env.CONNECTIONSTRING }),
+  //store: Store.create({ mongoUrl: process.env.CONNECTIONSTRING }),
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -44,7 +44,12 @@ app.use(csrfMiddleware);
 app.use(router);
 
 
-app.on('done', () => app.listen(3000, () => {
+/*app.on('done', () => */app.listen(3000, () => {
+  let i = 0;
+  setInterval(() => {
+    console.log('teste ' + i);
+    i++;
+  }, 5000);
   console.log("Acessar http://localhost:3000");
   console.log("Servidor executando na porta 3000");
-}));
+})/*)*/;

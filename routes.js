@@ -15,7 +15,7 @@ router.post("/login/auth", LoginController.authenticateUser);
 
 router.get("/login/logout", LoginController.logout);
 
-router.get(["/contato", "/contato/index"], loginRequired, ContatoController.index);
+router.get(["/contato", "/contato/index"], /*loginRequired,*/ ContatoController.index);
 
 router.post("/contato/register", loginRequired, ContatoController.registerContact);
 
