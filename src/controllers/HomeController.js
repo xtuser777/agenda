@@ -1,4 +1,3 @@
-const Home = require('../models/Home');
 const Contato = require('../models/Contato');
 
 class HomeController {
